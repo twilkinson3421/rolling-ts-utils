@@ -37,7 +37,7 @@ let sentence: ReplaceStringPart<typeof str, "dog">;
 ### `ReplaceStringPart<OriginalString, NewString, Match>`
 
 - `OriginalString`: The string to be replaced
-- `NewString`: The string to be inserted
+- `NewString`: The string to be inserted at the first occurance of `Match`
 - `Match`: The substring to be replaced
 - _If no match is found, the original string is returned_
 
@@ -46,6 +46,20 @@ const str = "This is a cool {noun}." as const;
 
 let sentence: ReplaceStringPart<typeof str, "cat", "{noun}">;
 //  ^? typeof sentence = "This is a cool cat."
+```
+
+### `ReplaceStringPartGlobal<OriginalString, NewString, Match>`
+
+- `OriginalString`: The string to be replaced
+- `NewString`: The string to be inserted at each occurance of `Match`
+- `Match`: The substring to be replaced
+- _If no match is found, the original string is returned_
+
+```ts
+const str = "This is {word} {word} {thing}." as const;
+
+let sentence: ReplaceStringPartGlobal<typeof str, "dog", "{word}">;
+//  ^? typeof sentence = "This is dog dog {thing}."
 ```
 
 ### `ReplaceOrderedStringParts<OriginalString, NewStrings, Index>`

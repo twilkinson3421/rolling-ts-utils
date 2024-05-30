@@ -6,6 +6,16 @@ export type ReplaceStringPart<
   ? `${Start}${NewString}${End}`
   : OriginalString;
 
+export type ReplaceStringPartGlobal<
+  OriginalString extends string,
+  NewString extends string,
+  Match extends string = `\{${string}\}`
+> = OriginalString extends `${infer Start}${Match}${infer End}`
+  ? `${Start}${NewString}${End}` extends `${infer Start}${Match}${infer End}`
+    ? ReplaceStringPartGlobal<`${Start}${NewString}${End}`, NewString, Match>
+    : `${Start}${NewString}${End}`
+  : OriginalString;
+
 export type Inc<N extends number, T extends any[] = []> = T["length"] extends N
   ? [...T, any]["length"]
   : Inc<N, [...T, any]>;
@@ -43,6 +53,4 @@ export type ReplaceMultipleStringParts<
 export type ReplaceAllStringParts<
   OriginalString extends string,
   NewString extends string
-> = OriginalString extends `${infer Start}\{${string}\}${infer End}`
-  ? ReplaceAllStringParts<`${Start}${NewString}${End}`, NewString>
-  : OriginalString;
+> = ReplaceStringPartGlobal<OriginalString, NewString>;

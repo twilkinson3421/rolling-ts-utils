@@ -48,7 +48,7 @@ let sentence: ReplaceStringPart<typeof str, "cat", "{noun}">;
 //  ^? typeof sentence = "This is a cool cat."
 ```
 
-### `ReplaceMultipleStringParts<OriginalString, NewStrings, Index>`
+### `ReplaceOrderedStringParts<OriginalString, NewStrings, Index>`
 
 - `OriginalString`: The string to be replaced
 - `NewStrings`: An array of strings to be inserted in order
@@ -60,11 +60,32 @@ let sentence: ReplaceStringPart<typeof str, "cat", "{noun}">;
 ```ts
 const str = "This is {article} {adjective} {noun}." as const;
 
-let sentence: ReplaceMultipleStringParts<
+let sentence: ReplaceOrderedStringParts<
   typeof str,
   ["an", "amazing", "rabbit"]
 >;
 //  ^? typeof sentence = "This is an amazing rabbit."
+```
+
+### `ReplaceMultipleStringParts<OriginalString, Keys, Values, Index>`
+
+- `OriginalString`: The string to be replaced
+- `Keys`: An array of substrings to be replaced
+- `Values`: An array of strings to be inserted in place of the key _at the same position_ in the `Keys` array
+- `Index`: The index of the substring to be replaced (this should normally be left empty)
+- _If no `{string}` is found, the original string is returned_
+
+**_This will break if the `Keys` array contains more than 1000 elements_**
+
+```ts
+const str = "This is {article} {adjective} {noun}." as const;
+
+let sentence: ReplaceMultipleStringParts<
+  typeof str,
+  ["{article}", "{adjective}", "{noun}"],
+  ["an", "interesting", "duck"]
+>;
+//  ^? typeof sentence = "This is an interesting duck."
 ```
 
 ### `ReplaceAllStringParts<OriginalString, NewString>`

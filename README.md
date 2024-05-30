@@ -73,7 +73,7 @@ let sentence: ReplaceOrderedStringParts<
 - `Keys`: An array of substrings to be replaced
 - `Values`: An array of strings to be inserted in place of the key _at the same position_ in the `Keys` array
 - `Index`: The index of the substring to be replaced (this should normally be left empty)
-- _If no `{string}` is found, the original string is returned_
+- _If no match is found, the key-value pair has no impact_
 
 **_This will break if the `Keys` array contains more than 1000 elements_**
 

@@ -24,7 +24,7 @@
     "url": "https://github.com/twilkinson3421"
   },
   "license": "MIT",
-  "description": "",
+  "description": "A small library which exposes some helpful generic utility types",
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^20.12.12",

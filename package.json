@@ -1,0 +1,33 @@
+{
+  "name": "chalk-konsole",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "homepage": "https://github.com/twilkinson3421/chalk-konsole#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twilkinson3421/chalk-konsole.git"
+  },
+  "keywords": [
+    "typescript-utils",
+    "rolling-ts-utils",
+    "ts-utils",
+    "utility-types",
+    "types"
+  ],
+  "author": {
+    "name": "Thomas Wilkinson",
+    "url": "https://github.com/twilkinson3421"
+  },
+  "license": "MIT",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.4.5"
+  }
+}

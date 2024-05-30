@@ -24,7 +24,7 @@ let sentence: ReplaceStringPart<typeof str, "dog">;
 ### `ReplaceStringPart<OriginalString, NewString>`
 
 - `OriginalString`: The string to be replaced
-- `NewString`: The string to replace the first occurrence of `{string}` where `string` is any string
+- `NewString`: The string to replace the first occurrence of `{string}`, where `string` is any string
 - _If no `{string}` is found, the original string is returned_
 
 ```ts
@@ -65,6 +65,18 @@ let sentence: ReplaceMultipleStringParts<
   ["an", "amazing", "rabbit"]
 >;
 //  ^? typeof sentence = "This is an amazing rabbit."
+```
+
+### `ReplaceAllStringParts<OriginalString, NewString>`
+
+- `OriginalString`: The string to be replaced
+- `NewString`: The string to be inserted in place of **ALL** occurrences of `{string}`, where `string` is any string
+
+```ts
+const str = "This is {article} {adjective} {noun}." as const;
+
+let sentence: ReplaceAllStringParts<typeof str, "dog">;
+//  ^? typeof sentence = "This is dog dog dog."
 ```
 
 ### `Inc<OriginalNum>`

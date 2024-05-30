@@ -23,3 +23,10 @@ export type ReplaceMultipleStringParts<
         Inc<Index>
       >
   : OriginalString;
+
+export type ReplaceAllStringParts<
+  OriginalString extends string,
+  NewString extends string
+> = OriginalString extends `${infer Start}\{${string}\}${infer End}`
+  ? ReplaceAllStringParts<`${Start}${NewString}${End}`, NewString>
+  : OriginalString;

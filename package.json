@@ -1,5 +1,5 @@
 {
-  "name": "chalk-konsole",
+  "name": "rolling-ts-utils",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -7,10 +7,10 @@
   "scripts": {
     "build": "tsc"
   },
-  "homepage": "https://github.com/twilkinson3421/chalk-konsole#readme",
+  "homepage": "https://github.com/twilkinson3421/rolling-ts-utils#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/twilkinson3421/chalk-konsole.git"
+    "url": "https://github.com/twilkinson3421/rolling-ts-utils.git"
   },
   "keywords": [
     "typescript-utils",

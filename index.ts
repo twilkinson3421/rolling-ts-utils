@@ -12,7 +12,7 @@ export type Inc<N extends number, T extends any[] = []> = T["length"] extends N
 
 export type ReplaceOrderedStringParts<
   OriginalString extends string,
-  NewStrings extends string[],
+  NewStrings extends Readonly<string[]>,
   Index extends number = 0
 > = OriginalString extends `${infer Start}\{${string}\}${infer End}`
   ? Index extends NewStrings["length"]
@@ -26,8 +26,8 @@ export type ReplaceOrderedStringParts<
 
 export type ReplaceMultipleStringParts<
   OriginalString extends string,
-  Keys extends string[],
-  Values extends string[],
+  Keys extends Readonly<string[]>,
+  Values extends Readonly<string[]>,
   Index extends number = 0
 > = OriginalString extends `${infer Start}${Keys[Index]}${infer End}`
   ? Index extends Keys["length"]
